@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ThreadType
  *
- * @ORM\Table()
+ * @ORM\Table("itaw_thread_type")
  * @ORM\Entity
  */
 class ThreadType
