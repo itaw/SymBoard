@@ -67,3 +67,9 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+services:
+    template_controller:
+        class:  "itaw\TemplateBundle\Controller\TemplateController"
+        calls:
+            - [setContainer, ["@service_container"]]

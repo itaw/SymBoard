@@ -12,4 +12,9 @@ class PageController extends Controller
         return $this->redirect($this->generateUrl('itaw_forum_forums'));
     }
 
+    public function forumsAction()
+    {
+        return $this->get('template_controller')->renderTemplate('forums.html.twig', array());
+    }
+
 }

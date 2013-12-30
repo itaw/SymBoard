@@ -11,7 +11,7 @@ class TemplateController extends Controller
     {
         $template = $this->getDoctrine()->getRepository('itawDataBundle:Template')->findCurrent();
 
-        $this->render('itawTemplateBundle:' . $template->getIdentifier() . ':' . $viewName, $parameters);
+        return $this->render('itawTemplateBundle:' . $template->getIdentifier() . ':' . $viewName, $parameters);
     }
 
 }
