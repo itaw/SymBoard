@@ -55,6 +55,25 @@ class Thread
      */
     private $editDate;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prefix", type="string", length=255)
+     */
+    private $prefix;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ThreadState")
+     * @ORM\JoinColumn(name="state_id", referencedColumnName="id")
+     */
+    private $state;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ThreadType")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
+     */
+    private $type;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection;
@@ -131,6 +150,36 @@ class Thread
     public function setPosts($posts)
     {
         $this->posts = $posts;
+    }
+
+    public function getPrefix()
+    {
+        return $this->prefix;
+    }
+
+    public function setPrefix($prefix)
+    {
+        $this->prefix = $prefix;
+    }
+
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 
 }
