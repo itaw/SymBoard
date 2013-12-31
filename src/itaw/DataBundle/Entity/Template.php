@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Template
  *
  * @ORM\Table("itaw_template")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="itaw\DataBundle\Entity\TemplateRepository")
  */
 class Template
 {

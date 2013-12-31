@@ -13,19 +13,24 @@ use Doctrine\ORM\EntityRepository;
 class TemplateRepository extends EntityRepository
 {
 
+    /**
+     * Gets the currently activated Template
+     * 
+     * @return \itaw\DataBundle\Entity\Template
+     */
     public function findCurrent()
     {
         $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder()
                 ->add('select', 'h')
-                ->add('from', 'itawDataBundle:TemplateHistory')
+                ->add('from', 'itawDataBundle:TemplateHistory h')
                 ->add('orderBy', 'h.id DESC')
                 ->setMaxResults(1);
         $query = $qb->getQuery();
 
         $templateHistory = $query->getResult();
 
-        return $templateHistory[0];
+        return $templateHistory[0]->getTemplate();
     }
 
 }
