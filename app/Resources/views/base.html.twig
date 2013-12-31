@@ -2,12 +2,22 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Unhandled Title!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!--global styles-->
+        <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}" />
+        <!--block styles-->
         {% block stylesheets %}{% endblock %}
+
+        <!--block JS-->
+        {% block javascripts %}{% endblock %}
+
+        <!--favicon-->
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
     </body>
 </html>

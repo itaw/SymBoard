@@ -1,0 +1,7 @@
+itaw_template_js:
+    pattern:  /js/{templateName}/{fileName}
+    defaults: { _controller: itawTemplateBundle:Template:getJs }
+    
+itaw_template_css:
+    pattern:  /css/{templateName}/{fileName}
+    defaults: { _controller: itawTemplateBundle:Template:getCss }
