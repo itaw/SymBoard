@@ -4,5 +4,67 @@
 {% block title %}{{forum_title}} &middot; {{forum.title}}{% endblock %}
 
 {% block content %}
-Forum
+
+<ol class="breadcrumb">
+    {% for b in forum.breadcrumbs %}
+    <li><a href="{{ path('itaw_forum_show_forum', {forum_slug: b.slug}) }}">{{b.title}}</a></li>
+    {% endfor %}
+    <li class="active">{{forum.title}}</li>
+</ol>
+
+<h4>Unterforen</h4>
+{% for child in forum.children %}
+<div class="row">
+    <div class="col-lg-1 forum-img">
+        <span class="glyphicon glyphicon-tags"></span>
+    </div>
+    <div class="col-lg-6">
+        <h4><a href="{{ path('itaw_forum_show_forum', {forum_slug: child.slug}) }}">{{child.title}}</a></h4>
+        {% if child.description != null %}
+        <span class="forum-description">
+            {{child.description}}
+        </span>
+        {% endif %}
+    </div>
+    <div class="col-lg-1 forum-info">
+        <span class="label label-info">XXX</span>
+    </div>
+    <div class="col-lg-1 forum-info">
+        <span class="label label-info">XXX</span>
+    </div>
+    <div class="col-lg-3">
+    </div>
+</div>
+<br>
+{% else %}
+<span class="oblique-text">- Dieses Forum hat keine Unterforen -</span>
+{% endfor %}
+
+<hr>
+
+<span class="pull-right"><a class="btn btn-primary btn-sm" href="#"><span class="glyphicon glyphicon-plus-sign"></span> Neuer Thread</a></span>
+<h4>Threads</h4>
+
+{% for thread in forum.threads %}
+<div class="row">
+    <div class="col-lg-1 forum-img">
+        <span class="glyphicon glyphicon-tag"></span>
+    </div>
+    <div class="col-lg-6">
+        <h4><a href="{{ path('itaw_forum_show_thread', {forum_slug: forum.slug, thread_slug: thread.slug}) }}">{{thread.title}}</a></h4>
+    </div>
+    <div class="col-lg-1 forum-info">
+        <span class="label label-info">XXX</span>
+    </div>
+    <div class="col-lg-1 forum-info">
+        <span class="label label-info">XXX</span>
+    </div>
+    <div class="col-lg-3">
+    </div>
+</div>
+<br>
+{% else %}
+<span class="oblique-text">- Dieses Forum hat keine Threads -</span>
+{% endfor %}
+
 {% endblock %}

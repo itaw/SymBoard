@@ -23,7 +23,7 @@ class PageController extends Controller
     {
         $forumHistory = $this->getDoctrine()->getRepository('itawDataBundle:ForumHistory')->findOneBySlug($forum_slug);
 
-        if (!$forumHistory) {
+        if (!(!$forumHistory)) {
             return $this->redirect($this->generateUrl('itaw_forum_show_forum', array('forum_slug' => $forumHistory->getForum()->getSlug())));
         } else {
             $forum = $this->getDoctrine()->getRepository('itawDataBundle:Forum')->findOneBySlug($forum_slug);

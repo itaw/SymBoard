@@ -26,7 +26,7 @@ class Forum
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255, unique=true)
+     * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
@@ -38,7 +38,14 @@ class Forum
     private $slug;
 
     /**
-     * @ORM\OneToOne(targetEntity="Forum")
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Forum", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
     private $parent;
@@ -151,6 +158,29 @@ class Forum
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function getBreadcrumbs()
+    {
+        $p = $this->getParent();
+        $breadcrumbs = array();
+        
+        while(!is_null($p)) {
+            $breadcrumbs[] = $p;
+            $p = $p->getParent();
+        }
+        
+        return $breadcrumbs;
     }
 
 }

@@ -13,18 +13,24 @@
     <div class="col-lg-1 forum-img">
         <span class="glyphicon glyphicon-tags"></span>
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-6">
         <h4><a href="{{ path('itaw_forum_show_forum', {forum_slug: forum.slug}) }}">{{forum.title}}</a></h4>
+        {% if forum.description != null %}
+        <span class="forum-description">
+            {{forum.description}}
+        </span>
+        {% endif %}
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-1 forum-info">
         <span class="label label-info">XXX</span>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-1 forum-info">
         <span class="label label-info">XXX</span>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
     </div>
 </div>
+<br>
 {% else %}
 <span class="label label-warning">Dieses Board hat keine Foren!</span>
 {% endfor %}

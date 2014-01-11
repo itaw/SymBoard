@@ -4,4 +4,13 @@ body {
 
 .forum-img {
     font-size: 38px;
+    padding-top: 10px;
+}
+
+.forum-info {
+    padding-top: 10px;
+}
+
+.oblique-text {
+    font-style: oblique;
 }

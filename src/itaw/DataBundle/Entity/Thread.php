@@ -31,7 +31,7 @@ class Thread
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Forum")
+     * @ORM\ManyToOne(targetEntity="Forum", inversedBy="threads")
      * @ORM\JoinColumn(name="forum_id", referencedColumnName="id")
      */
     private $forum;
