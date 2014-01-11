@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new itaw\ForumBundle\itawForumBundle(),
             new itaw\DataBundle\itawDataBundle(),
             new itaw\TemplateBundle\itawTemplateBundle(),
+            new itaw\ForumApiBundle\itawForumApiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

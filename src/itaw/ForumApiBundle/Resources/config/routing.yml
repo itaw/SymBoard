@@ -1,0 +1,5 @@
+#thread
+itaw_forum_api_thread_create:
+    pattern:  /thread
+    defaults: { _controller: itawForumApiBundle:Thread:create }
+    methods: [POST]

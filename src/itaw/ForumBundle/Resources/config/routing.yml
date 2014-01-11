@@ -9,10 +9,6 @@ itaw_forum_forums:
 itaw_forum_show_forum:
     pattern:  /forums/{forum_slug}
     defaults: { _controller: itawForumBundle:Page:showForum }
-    
-itaw_forum_show_thread:
-    pattern:  /forums/{forum_slug}/thread/{thread_slug}
-    defaults: { _controller: itawForumBundle:Page:showThread }
 
 #forum crud
 itaw_forum_create_forum:
@@ -31,6 +27,10 @@ itaw_forum_delete_forum:
 itaw_forum_create_thread:
     pattern:  /forums/{forum_slug}/thread/create
     defaults: { _controller: itawForumBundle:Thread:create }
+    
+itaw_forum_show_thread:
+    pattern:  /forums/{forum_slug}/thread/{thread_slug}
+    defaults: { _controller: itawForumBundle:Page:showThread }
     
 itaw_forum_update_thread:
     pattern:  /forums/{forum_slug}/thread/{thread_slug}/update

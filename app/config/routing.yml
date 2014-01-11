@@ -1,3 +1,7 @@
+itaw_forum_api:
+    resource: "@itawForumApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
 itaw_template:
     resource: "@itawTemplateBundle/Resources/config/routing.yml"
     prefix:   /template

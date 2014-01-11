@@ -26,9 +26,16 @@ class Thread
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="title", type="string", length=255)
      */
-    private $description;
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     */
+    private $slug;
 
     /**
      * @ORM\ManyToOne(targetEntity="Forum", inversedBy="threads")
@@ -87,29 +94,6 @@ class Thread
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Thread
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     public function getCreationDate()
@@ -180,6 +164,26 @@ class Thread
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
 }
