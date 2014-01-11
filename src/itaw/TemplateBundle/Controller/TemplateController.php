@@ -26,8 +26,9 @@ class TemplateController extends Controller
 
         return $this->render('itawTemplateBundle:' . $template->getIdentifier() . ':' . $viewName, $parameters);
     }
-    
-    private function getAsset($template, $filename, $type, $contentType) {
+
+    private function getAsset($template, $filename, $type, $contentType = null)
+    {
         $folder = __DIR__ . DS . '..' . DS . 'Resources' . DS . 'views' . DS . $template . DS . $type;
         $finder = new Finder();
         $finder->files()->in($folder);
@@ -35,7 +36,10 @@ class TemplateController extends Controller
         foreach ($finder as $file) {
             if (strpos($file->getRealpath(), $filename) !== false) {
                 $response = new Response(file_get_contents($file->getRealpath()));
-                $response->headers->set('Content-Type', $contentType);
+
+                if (!is_null($contentType)) {
+                    $response->headers->set('Content-Type', $contentType);
+                }
 
                 return $response;
             }
@@ -52,6 +56,11 @@ class TemplateController extends Controller
     public function getCssAction($templateName, $fileName)
     {
         return $this->getAsset($templateName, $fileName, 'css', 'text/css');
+    }
+
+    public function getFontsAction($templateName, $fileName)
+    {
+        return $this->getAsset($templateName, $fileName, 'fonts');
     }
 
 }

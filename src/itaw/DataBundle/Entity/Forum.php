@@ -24,6 +24,20 @@ class Forum
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, unique=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     */
+    private $slug;
+
+    /**
      * @ORM\OneToOne(targetEntity="Forum")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
@@ -117,6 +131,26 @@ class Forum
     public function setThreads($threads)
     {
         $this->threads = $threads;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
 }

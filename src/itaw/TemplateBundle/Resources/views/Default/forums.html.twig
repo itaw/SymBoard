@@ -1,5 +1,32 @@
 {% extends "itawTemplateBundle:Default:layout.html.twig" %}
 
+{% block currentPage %}forums{% endblock %}
+{% block title %}{{forum_title}} &middot; Forenübersicht{% endblock %}
+
 {% block content %}
-Forums
+
+<h3>Forenübersicht</h3>
+<br><br>
+
+{% for forum in forums %}
+<div class="row">
+    <div class="col-lg-1 forum-img">
+        <span class="glyphicon glyphicon-tags"></span>
+    </div>
+    <div class="col-lg-5">
+        <h4><a href="{{ path('itaw_forum_show_forum', {forum_slug: forum.slug}) }}">{{forum.title}}</a></h4>
+    </div>
+    <div class="col-lg-1">
+        <span class="label label-info">XXX</span>
+    </div>
+    <div class="col-lg-1">
+        <span class="label label-info">XXX</span>
+    </div>
+    <div class="col-lg-4">
+    </div>
+</div>
+{% else %}
+<span class="label label-warning">Dieses Board hat keine Foren!</span>
+{% endfor %}
+
 {% endblock %}
