@@ -42,7 +42,7 @@
 
 <hr>
 
-<span class="pull-right"><a class="btn btn-primary btn-sm" href="#"><span class="glyphicon glyphicon-plus-sign"></span> Neuer Thread</a></span>
+<span class="pull-right"><a class="btn btn-primary btn-sm" href="{{ path('itaw_forum_create_thread', {forum_slug: forum.slug}) }}"><span class="glyphicon glyphicon-plus-sign"></span> Neuer Thread</a></span>
 <h4>Threads</h4>
 
 {% for thread in forum.threads %}
