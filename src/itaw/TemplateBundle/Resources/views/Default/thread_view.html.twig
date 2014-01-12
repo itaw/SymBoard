@@ -1,0 +1,17 @@
+{% extends "itawTemplateBundle:Default:layout.html.twig" %}
+
+{% block currentPage %}forums{% endblock %}
+{% block title %}{{forum_title}} &middot; {{forum.title}} &middot; {{thread.title}}{% endblock %}
+
+{% block content %}
+
+<ol class="breadcrumb">
+    {% for b in forum.breadcrumbs %}
+    <li><a href="{{ path('itaw_forum_show_forum', {forum_slug: b.slug}) }}">{{b.title}}</a></li>
+    {% endfor %}
+    <li>{{forum.title}}</li>
+    <li class="active">{{thread.title}}</li>
+</ol>
+
+
+{% endblock %}

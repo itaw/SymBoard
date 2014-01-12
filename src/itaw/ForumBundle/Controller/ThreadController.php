@@ -5,6 +5,8 @@ namespace itaw\ForumBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use itaw\DataBundle\Entity\Thread;
+use itaw\DataBundle\Helper\ThreadHelper;
+use itaw\DataBundle\Entity\Post;
 
 class ThreadController extends Controller
 {
@@ -18,18 +20,28 @@ class ThreadController extends Controller
             $text = $request->get('text');
 
             if ($text !== "" && $title !== "") {
-                $thread = $this->getDoctrine()->getRepository('itawDataBundle:Thread')->findOneInForum($title, $forum->getId());
+                $thread = new Thread();
+                $thread->setTitle($title);
+                $thread->setCreationDate(new \DateTime('now'));
+                $thread->setForum($forum);
+                $thread->setSlug(ThreadHelper::generateSlug($title, $this->getDoctrine()));
+                $state = $this->getDoctrine()->getRepository('itawDataBundle:ThreadState')->findOneByTitle('Open');
+                $thread->setState($state);
+                $type = $this->getDoctrine()->getRepository('itawDataBundle:ThreadType')->findOneByTitle('Thread');
+                $thread->setType($type);
 
-                if (!$thread) {
-                    $thread = new Thread();
-                    $thread->setTitle($title);
-                    $thread->setCreationDate(new \DateTime('now'));
-                    $thread->setForum($forum);
-                    $thread->setSlug('');
-                    //TODO: Type, State
-                } else {
-                    //TODO: title exists
-                }
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($thread);
+                $em->flush();
+
+                $post = new Post();
+                $post->setText($text);
+                $post->setThread($thread);
+
+                $em->persist($post);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('itaw_forum_show_thread', array('forum_slug' => $forum->getSlug(), 'thread_slug' => $thread->getSlug())));
             } else {
                 //TODO: InvalidArgumentException
             }

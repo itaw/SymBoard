@@ -20,7 +20,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <form role="form">
+                <form role="form" action="{{ path('itaw_forum_create_thread', {forum_slug: forum.slug}) }}" method="POST">
                     <div class="form-group">
                         <label for="input-thread-title">Titel</label>
                         <input type="text" class="form-control" id="input-thread-title" name="title">
