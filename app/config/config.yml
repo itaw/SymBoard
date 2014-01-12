@@ -75,3 +75,9 @@ services:
         class:  "itaw\TemplateBundle\Controller\TemplateController"
         calls:
             - [setContainer, ["@service_container"]]
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: itaw\UserBundle\Entity\User
+    

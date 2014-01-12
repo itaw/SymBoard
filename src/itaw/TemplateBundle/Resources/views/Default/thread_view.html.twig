@@ -9,7 +9,7 @@
     {% for b in forum.breadcrumbs %}
     <li><a href="{{ path('itaw_forum_show_forum', {forum_slug: b.slug}) }}">{{b.title}}</a></li>
     {% endfor %}
-    <li>{{forum.title}}</li>
+    <li><a href="{{ path('itaw_forum_show_forum', {forum_slug: forum.slug}) }}">{{forum.title}}</a></li>
     <li class="active">{{thread.title}}</li>
 </ol>
 
