@@ -19,10 +19,30 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="itaw\DataBundle\Entity\Post", mappedBy="user")
+     */
+    protected $posts;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    public function setPosts($posts)
+    {
+        $this->posts = $posts;
     }
 
 }

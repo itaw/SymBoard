@@ -36,6 +36,12 @@ class Post
     private $thread;
 
     /**
+     * @ORM\ManyToOne(targetEntity="itaw\UserBundle\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -76,6 +82,16 @@ class Post
     public function setThread($thread)
     {
         $this->thread = $thread;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
     }
 
 }
