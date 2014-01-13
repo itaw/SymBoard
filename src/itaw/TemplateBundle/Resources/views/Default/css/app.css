@@ -11,14 +11,6 @@ body {
     padding-top: 10px;
 }
 
-.forum-tile:nth-child(even) {
-    background-color: #ffffff;
-}
-
-.forum-tile:nth-child(odd) {
-    background-color: #eaeaea;
-}
-
 .oblique-text {
     font-style: oblique;
 }

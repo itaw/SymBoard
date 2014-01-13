@@ -19,9 +19,7 @@ class ThreadController extends Controller
             $title = $request->get('title');
             $text = $request->get('text');
 
-            if ($text !== "" && $title !== "") {
-                $text = $this->get('bbcode.parser')->parse($text);
-                
+            if ($text !== "" && $title !== "") {                
                 $thread = new Thread();
                 $thread->setTitle($title);
                 $thread->setCreationDate(new \DateTime('now'));

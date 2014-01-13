@@ -45,7 +45,7 @@ class Forum
     private $description;
 
     /**
-     * @ORM\OneToOne(targetEntity="Forum", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="Forum", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
     private $parent;
