@@ -42,6 +42,20 @@ class Post
     private $user;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="creation_date", type="datetime")
+     */
+    private $creationDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="edit_date", type="datetime", nullable=true)
+     */
+    private $editDate;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -92,6 +106,26 @@ class Post
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+    public function getEditDate()
+    {
+        return $this->editDate;
+    }
+
+    public function setCreationDate(\DateTime $creationDate)
+    {
+        $this->creationDate = $creationDate;
+    }
+
+    public function setEditDate(\DateTime $editDate)
+    {
+        $this->editDate = $editDate;
     }
 
 }

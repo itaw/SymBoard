@@ -14,25 +14,24 @@
 
 <h4>Unterforen</h4>
 {% for child in forum.children %}
-<div class="row">
-    <div class="col-lg-1 forum-img">
-        <span class="glyphicon glyphicon-tags"></span>
-    </div>
-    <div class="col-lg-6">
-        <h4><a href="{{ path('itaw_forum_show_forum', {forum_slug: child.slug}) }}">{{child.title}}</a></h4>
-        {% if child.description != null %}
-        <span class="forum-description">
-            {{child.description}}
-        </span>
-        {% endif %}
-    </div>
-    <div class="col-lg-1 forum-info">
-        <span class="label label-info">XXX</span>
-    </div>
-    <div class="col-lg-1 forum-info">
-        <span class="label label-info">XXX</span>
-    </div>
-    <div class="col-lg-3">
+<div class="forum-tile">
+    <div class="row">
+        <div class="col-lg-1 forum-img">
+            <span class="glyphicon glyphicon-tags"></span>
+        </div>
+        <div class="col-lg-6">
+            <h4><a href="{{ path('itaw_forum_show_forum', {forum_slug: child.slug}) }}">{{child.title}}</a></h4>
+            {% if child.description != null %}
+            <span class="forum-description">
+                {{child.description}}
+            </span>
+            {% endif %}
+        </div>
+        <div class="col-lg-1 forum-info">
+            <span class="label label-info">{{forum.threads|length}} Threads</span>
+        </div>
+        <div class="col-lg-4">
+        </div>
     </div>
 </div>
 <br>
@@ -52,14 +51,13 @@
     </div>
     <div class="col-lg-6">
         <h4><a href="{{ path('itaw_forum_show_thread', {forum_slug: forum.slug, thread_slug: thread.slug}) }}">{{thread.title}}</a></h4>
+        <span class="post-info post-from"><span class="glyphicon glyphicon-bullhorn"></span> von <a href="#">{{thread.user.username}}</a></span>
+        <span class="post-info post-date"><span class="glyphicon glyphicon-calendar"></span> am {{thread.creationDate|date('d.m.Y G:i')}}</span>
     </div>
     <div class="col-lg-1 forum-info">
-        <span class="label label-info">XXX</span>
+        <span class="label label-info">{{thread.posts|length - 1}} Antworten</span>
     </div>
-    <div class="col-lg-1 forum-info">
-        <span class="label label-info">XXX</span>
-    </div>
-    <div class="col-lg-3">
+    <div class="col-lg-4">
     </div>
 </div>
 <br>

@@ -29,6 +29,7 @@ class ThreadController extends Controller
                 $thread->setState($state);
                 $type = $this->getDoctrine()->getRepository('itawDataBundle:ThreadType')->findOneByTitle('Thread');
                 $thread->setType($type);
+                $thread->setUser($this->get('security.context')->getToken()->getUser());
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($thread);
@@ -37,6 +38,8 @@ class ThreadController extends Controller
                 $post = new Post();
                 $post->setText($text);
                 $post->setThread($thread);
+                $post->setUser($this->get('security.context')->getToken()->getUser());
+                $post->setCreationDate(new \DateTime('now'));
 
                 $em->persist($post);
                 $em->flush();

@@ -81,6 +81,12 @@ class Thread
      */
     private $type;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="itaw\UserBundle\Entity\User", inversedBy="threads")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection;
@@ -184,6 +190,16 @@ class Thread
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
     }
 
 }

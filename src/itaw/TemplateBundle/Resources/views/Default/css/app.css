@@ -11,6 +11,36 @@ body {
     padding-top: 10px;
 }
 
+.forum-tile:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.forum-tile:nth-child(odd) {
+    background-color: #eaeaea;
+}
+
 .oblique-text {
     font-style: oblique;
+}
+
+.post-info {
+    font-size: 11px;
+}
+
+.post-date {
+    margin-left: 10px;
+}
+
+.post-username {
+    font-weight: 800;
+}
+
+.post-userspace {
+    border-left: 1px dashed #cccccc;
+}
+
+.post-userspace-info {
+    font-style: oblique;
+    font-size: 12px;
+    color: #999999;
 }

@@ -24,6 +24,11 @@ class User extends BaseUser
      */
     protected $posts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="itaw\DataBundle\Entity\Thread", mappedBy="user")
+     */
+    protected $threads;
+
     public function __construct()
     {
         parent::__construct();
@@ -43,6 +48,16 @@ class User extends BaseUser
     public function setPosts($posts)
     {
         $this->posts = $posts;
+    }
+
+    public function getThreads()
+    {
+        return $this->threads;
+    }
+
+    public function setThreads($threads)
+    {
+        $this->threads = $threads;
     }
 
 }
