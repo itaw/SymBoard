@@ -29,6 +29,11 @@ class User extends BaseUser
      */
     protected $threads;
 
+    /**
+     * @ORM\OneToOne(targetEntity="itaw\DataBundle\Entity\UserProfile", mappedBy="user")
+     * */
+    private $profile;
+
     public function __construct()
     {
         parent::__construct();
@@ -58,6 +63,16 @@ class User extends BaseUser
     public function setThreads($threads)
     {
         $this->threads = $threads;
+    }
+
+    public function getProfile()
+    {
+        return $this->profile;
+    }
+
+    public function setProfile($profile)
+    {
+        $this->profile = $profile;
     }
 
 }
