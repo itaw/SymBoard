@@ -1,0 +1,36 @@
+{% extends "itawTemplateBundle:Default:layout.html.twig" %}
+
+{% block currentPage %}forums{% endblock %}
+{% block title %}{{forum_title}} &middot; {{forum.title}} &middot; Antwort auf {{thread.title}}{% endblock %}
+
+{% block content %}
+
+<ol class="breadcrumb">
+    {% for b in forum.breadcrumbs %}
+    <li><a href="{{ path('itaw_forum_show_forum', {forum_slug: b.slug}) }}">{{b.title}}</a></li>
+    {% endfor %}
+    <li class="active">{{forum.title}}</li>
+</ol>
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Antwort auf {{thread.title}}</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <form role="form" action="{{ path('itaw_forum_create_post', {forum_slug: forum.slug, thread_slug: thread.slug}) }}" method="POST">
+                    <div class="form-group">
+                        <textarea id="input-post-text" class="form-control" rows="15" name="text"></textarea>
+                    </div>
+                    <input type="hidden" name="sent" value="1">
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Absenden</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

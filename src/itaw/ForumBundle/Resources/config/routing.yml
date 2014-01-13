@@ -42,7 +42,7 @@ itaw_forum_delete_thread:
     
 #post crud
 itaw_forum_create_post:
-    pattern:  /forums/{forum_slug}/thread/{thread_slug}/post/create
+    pattern:  /forums/{forum_slug}/thread/{thread_slug}/post/answer
     defaults: { _controller: itawForumBundle:Post:create }
 
 itaw_forum_read_post:
