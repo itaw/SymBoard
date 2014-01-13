@@ -18,6 +18,8 @@ class PostController extends Controller
             $text = $request->get('text');
 
             if ($text !== "") {
+                $text = $this->get('bbcode.parser')->parse($text);
+                
                 $post = new Post();
                 $post->setText($text);
                 $post->setThread($thread);
