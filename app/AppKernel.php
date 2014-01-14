@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new itaw\ForumApiBundle\itawForumApiBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new itaw\UserBundle\itawUserBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

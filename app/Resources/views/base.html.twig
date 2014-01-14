@@ -11,6 +11,8 @@
         <!--block styles-->
         {% block stylesheets %}{% endblock %}
 
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
         <!--block JS-->
         {% block javascripts %}{% endblock %}
 
@@ -20,4 +22,14 @@
     <body>
         {% block body %}{% endblock %}
     </body>
+
+    <script>
+        window.setInterval(function() {
+            var url = Routing.generate('itaw_forum_login_check', {username: '{{app.user.username}}'});
+            xmlReq = new XMLHttpRequest();
+            xmlReq.open("GET", url, true);
+            xmlReq.send();
+        }, 30000);
+    </script>
+
 </html>

@@ -13,3 +13,7 @@ itaw_forum:
 itaw_user:
     resource: "@itawUserBundle/Resources/config/routing.yml"
     prefix:   /
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
