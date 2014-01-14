@@ -2,6 +2,10 @@ itaw_forum_homepage:
     pattern:  /
     defaults: { _controller: itawForumBundle:Page:index }
     
+itaw_forum_login_check:
+    pattern:  /sec/lc/{username}
+    defaults: { _controller: itawForumBundle:Page:loginCheck }
+    
 itaw_forum_forums:
     pattern:  /forums
     defaults: { _controller: itawForumBundle:Page:forums }

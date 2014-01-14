@@ -3,6 +3,8 @@
 namespace itaw\ForumBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use itaw\UserBundle\Entity\LoginState;
+use Symfony\Component\HttpFoundation\Response;
 
 class PageController extends Controller
 {
@@ -60,6 +62,33 @@ class PageController extends Controller
         } else {
             return $this->get('template_controller')->renderTemplate('thread_view.html.twig', array('forum' => $forum, 'thread' => $thread));
         }
+    }
+
+    public function loginCheckAction($username)
+    {
+        $user = $this->getDoctrine()->getRepository('itawUserBundle:User')->findOneByUsername($username);
+
+        if (!(!$user)) {
+            $loginState = $this->getDoctrine()->getRepository('itawUserBundle:LoginState')->findOneByUser($user);
+            if (!(!$loginState)) {
+                //update state
+                $loginState->setCheckDate(new \DateTime('now'));
+                
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+            } else {
+                //new state
+                $loginState = new LoginState();
+                $loginState->setUser($user);
+                $loginState->setCheckDate(new \DateTime('now'));
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($loginState);
+                $em->flush();
+            }
+        }
+
+        return new Response('true');
     }
 
 }
