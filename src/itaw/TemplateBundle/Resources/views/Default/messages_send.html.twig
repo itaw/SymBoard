@@ -1,0 +1,27 @@
+{% extends "itawTemplateBundle:Default:messages.html.twig" %}
+
+{% block title %}{{forum_title}} &middot; Nachricht senden{% endblock %}
+
+{% block msg_content %}
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Neue Nachricht</h3>
+    </div>
+    <div class="panel-body">
+
+        <form role="form" method="POST" action="">
+            <div class="form-group">
+                <label for="input-receiver">Empfänger</label>
+                <input type="text" class="form-control" id="input-receiver" placeholder="Empfänger">
+            </div>
+            <div class="form-group">
+                <textarea class="textarea-borderless" rows="15"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

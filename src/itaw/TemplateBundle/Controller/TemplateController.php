@@ -19,7 +19,7 @@ class TemplateController extends Controller
      * @param array $parameters
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function renderTemplate($viewName, $parameters)
+    public function renderTemplate($viewName, $parameters = array())
     {
         $template = $this->getDoctrine()->getRepository('itawDataBundle:Template')->findCurrent();
         $parameters['template'] = $template;

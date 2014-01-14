@@ -1,0 +1,12 @@
+{% extends "itawTemplateBundle:Default:layout.html.twig" %}
+
+{% block currentPage %}messages{% endblock %}
+{% block title %}{{forum_title}} &middot; Nachrichten{% endblock %}
+
+{% block content %}
+
+<h3>Nachrichten</h3>
+
+{% block msg_content %}{% endblock %}
+
+{% endblock %}

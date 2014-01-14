@@ -16,8 +16,6 @@ class MessageController extends Controller
 
     public function sendAction()
     {
-        $messages = $this->getDoctrine()->getRepository('itawMessageBundle:Message')->getReceivedMessages($this->get('security.context')->getToken()->getUser());
-
         return $this->get('template_controller')->renderTemplate('messages_send.html.twig');
     }
 
