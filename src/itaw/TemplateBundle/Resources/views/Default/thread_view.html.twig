@@ -28,6 +28,9 @@
                 <br>
                 <br>
                 {{(post.text|bb)|raw}}
+                
+                {% if post.user.profile.signature != null %}<hr>{{(post.user.profile.signature|bb)|raw}}{% endif %}
+                
             </div>
             <div class="col-lg-2 col-md-2 hidden-sm hidden-xs post-userspace">
                 <span class="post-username"><a href="#">{{post.user.username}}</a></span> {% render url('itaw_forum_login_state', { 'username': post.user.username }) %}<br>

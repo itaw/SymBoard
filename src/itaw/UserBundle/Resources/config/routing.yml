@@ -16,3 +16,13 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+    
+    
+#user
+itaw_user_profile:
+    pattern:  /user/{username}
+    defaults: { _controller: itawUserBundle:User:profile }
+    
+itaw_user_profile_update:
+    pattern:  /user/{username}/edit
+    defaults: { _controller: itawUserBundle:User:editProfile }

@@ -1,0 +1,53 @@
+{% extends "itawTemplateBundle:Default:user_profile.html.twig" %}
+
+{% block title %}{{forum_title}} &middot; {{user.username}} &middot; Profil bearbeiten{% endblock %}
+
+{% block user_details %}
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#profile" data-toggle="tab">Profil</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="profile">
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Benutzerprofil</h3>                
+            </div>
+            <div class="panel-body">
+                <form role="form" method="POST" action="{{ path('itaw_user_profile_update', {username: user.username}) }}">
+                    <div class="form-group">
+                        <label for="input-fullname">Voller Name</label>
+                        <input name="fullname" type="text" class="form-control" id="input-fullname" placeholder="Voller Name" {% if user.profile.fullName != null %}value="{{user.profile.fullName}}"{% endif %}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-website">Website</label>
+                        <input name="website" type="text" class="form-control" id="input-website" placeholder="Website" {% if user.profile.website != null %}value="{{user.profile.website}}"{% endif %}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-facebook">Facebook</label>
+                        <input name="facebook" type="text" class="form-control" id="input-facebook" placeholder="Facebook" {% if user.profile.facebook != null %}value="{{user.profile.facebook}}"{% endif %}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-city">Wohnort</label>
+                        <input name="city" type="text" class="form-control" id="input-city" placeholder="Wohnort" {% if user.profile.city != null %}value="{{user.profile.city}}"{% endif %}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-birthdate">Geburtstag</label>
+                        <input name="birthdate" type="text" class="form-control" id="input-birthdate" placeholder="tt.mm.yyyy" {% if user.profile.birthdate != null %}value="{{user.profile.birthdate|date('d.m.Y')}}"{% endif %}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-signature">Signatur</label>
+                        <textarea name="signature" class="form-control" rows="10" id="input-signature">{% if user.profile.signature != null %}{{user.profile.signature}}{% endif %}</textarea>
+                    </div>
+                    <input type="hidden" name="sent" value="1">
+                    <input type="hidden" name="page" value="profile">
+                    <button type="submit" class="btn btn-success">Speichern</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

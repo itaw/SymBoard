@@ -25,35 +25,42 @@ class UserProfile
     /**
      * @var string
      *
-     * @ORM\Column(name="full_name", type="string", length=255)
+     * @ORM\Column(name="full_name", type="string", length=255, nullable=true)
      */
     private $fullName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="website", type="string", length=255)
+     * @ORM\Column(name="website", type="string", length=255, nullable=true)
      */
     private $website;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="facebook", type="string", length=255)
+     * @ORM\Column(name="facebook", type="string", length=255, nullable=true)
      */
     private $facebook;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     */
+    private $city;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthdate", type="datetime")
+     * @ORM\Column(name="birthdate", type="datetime", nullable=true)
      */
     private $birthdate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="signature", type="text")
+     * @ORM\Column(name="signature", type="text", nullable=true)
      */
     private $signature;
 
@@ -230,6 +237,16 @@ class UserProfile
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    public function setCity($city)
+    {
+        $this->city = $city;
     }
 
 }

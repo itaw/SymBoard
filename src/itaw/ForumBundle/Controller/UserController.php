@@ -14,7 +14,7 @@ class UserController extends Controller
 
         $isOnline = false;
 
-        if (((new \DateTime('now'))->format('Y-m-d H:i:s') - $loginState->getCheckDate()->format('Y-m-d H:i:s')) < 30) {
+        if (((new \DateTime('now'))->format('Y-m-d H:i:s') - $loginState->getCheckDate()->format('Y-m-d H:i:s')) < 60) {
             $isOnline = true;
         }
 

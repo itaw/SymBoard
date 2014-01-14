@@ -40,3 +40,15 @@ body {
 .post-user-image {
     margin-top: 5px;
 }
+
+.profile-userspace {
+}
+
+.profile-userspace-info {
+    font-style: oblique;
+    font-size: 14px;
+    color: #999999;
+}
+
+.profile-user-image {
+}

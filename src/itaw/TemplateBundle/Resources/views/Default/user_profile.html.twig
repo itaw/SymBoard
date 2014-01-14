@@ -1,0 +1,52 @@
+{% extends "itawTemplateBundle:Default:layout.html.twig" %}
+
+{% block currentPage %}user{% endblock %}
+{% block title %}{{forum_title}} &middot; {{user.username}} &middot; Profil{% endblock %}
+
+{% block content %}
+
+<h3>{{user.username}}{% if user.profile.fullName != null %} - {{user.profile.fullName}}{% endif %}</h3>
+
+<div class="row">
+    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+        <div class="profile-userspace">
+            <img class="img-thumbnail profile-user-image" src="http://placehold.it/400x400">
+            <br>
+            <br>
+            {% render url('itaw_forum_login_state', { 'username': user.username }) %}
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        {% block user_details %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {% if app.user.username == user.username %}
+                <span class="pull-right"><span class="glyphicon glyphicon-wrench"></span> <strong><a href="{{ path('itaw_user_profile_update', {username: app.user.username}) }}">Bearbeiten</a></strong></span>
+                {% endif %}
+                <h3 class="panel-title">Benutzerprofil</h3>                
+            </div>
+            <div class="panel-body">                
+                <div>
+                    <h4>Details</h4>
+                    Website: {% if user.profile.website != null %}<a href="{{user.profile.website}}">{{user.profile.website}}</a>{% endif %}<br>
+                    Facebook: {% if user.profile.facebook != null %}<a href="{{user.profile.facebook}}">{{user.profile.facebook}}</a>{% endif %}<br>
+                    Geburtstag: {% if user.profile.birthdate != null %}{{user.profile.birthdate|date('d.m.Y')}}{% endif %}<br>
+                    Wohnort: {% if user.profile.city != null %}{{user.profile.city}}{% endif %}<br>
+                </div>
+                <hr>
+                <div>
+                    <h4>Signatur</h4>
+                    {% if user.profile.signature != null %}{{(user.profile.signature|bb)|raw}}{% endif %}
+                </div>
+                <hr>
+                <div>
+                    <h4>Statistik</h4>
+                    Beiträge: {{user.posts|length}}
+                </div>                
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}
