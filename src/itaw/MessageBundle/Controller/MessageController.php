@@ -3,6 +3,7 @@
 namespace itaw\MessageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class MessageController extends Controller
 {
@@ -14,9 +15,13 @@ class MessageController extends Controller
         return $this->get('template_controller')->renderTemplate('messages_inbox.html.twig', array('messages' => $messages));
     }
 
-    public function sendAction()
+    public function sendAction(Request $request)
     {
-        return $this->get('template_controller')->renderTemplate('messages_send.html.twig');
+        if ($request->get('sent') == 1) {
+            
+        } else {
+            return $this->get('template_controller')->renderTemplate('messages_send.html.twig');
+        }
     }
 
 }
