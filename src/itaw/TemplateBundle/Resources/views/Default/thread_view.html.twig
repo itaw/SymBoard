@@ -23,7 +23,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 post-postspace">
-                <span class="post-info post-from"><span class="glyphicon glyphicon-comment"></span> von <a href="#">{{post.user.username}}</a></span>
+                <span class="post-info post-from"><span class="glyphicon glyphicon-comment"></span> von <a href="{{ path('itaw_user_profile', {username: thread.user.username}) }}">{{post.user.username}}</a></span>
                 <span class="post-info post-date"><span class="glyphicon glyphicon-calendar"></span> am {{post.creationDate|date('d.m.Y G:i')}}</span>
                 <br>
                 <br>
@@ -33,7 +33,7 @@
                 
             </div>
             <div class="col-lg-2 col-md-2 hidden-sm hidden-xs post-userspace">
-                <span class="post-username"><a href="#">{{post.user.username}}</a></span> {% render url('itaw_forum_login_state', { 'username': post.user.username }) %}<br>
+                <span class="post-username"><a href="{{ path('itaw_user_profile', {username: thread.user.username}) }}">{{post.user.username}}</a></span> {% render url('itaw_forum_login_state', { 'username': post.user.username }) %}<br>
                 <img class="img-thumbnail post-user-image" src="http://placehold.it/200x200"><br>
                 <br>
                 <span class="post-userspace-info">Beiträge: {{post.user.posts|length}}</span>

@@ -51,7 +51,7 @@
     </div>
     <div class="col-lg-6">
         <h4><a href="{{ path('itaw_forum_show_thread', {forum_slug: forum.slug, thread_slug: thread.slug}) }}">{{thread.title}}</a></h4>
-        <span class="post-info post-from"><span class="glyphicon glyphicon-bullhorn"></span> von <a href="#">{{thread.user.username}}</a></span>
+        <span class="post-info post-from"><span class="glyphicon glyphicon-bullhorn"></span> von <a href="{{ path('itaw_user_profile', {username: thread.user.username}) }}">{{thread.user.username}}</a></span>
         <span class="post-info post-date"><span class="glyphicon glyphicon-calendar"></span> am {{thread.creationDate|date('d.m.Y G:i')}}</span>
     </div>
     <div class="col-lg-1 forum-info">
