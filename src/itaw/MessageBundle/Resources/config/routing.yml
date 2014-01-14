@@ -1,0 +1,12 @@
+itaw_message_homepage:
+    pattern:  /
+    defaults: { _controller: itawMessageBundle:Message:index }
+    
+itaw_message_inbox:
+    pattern:  /inbox
+    defaults: { _controller: itawMessageBundle:Message:inbox }
+
+itaw_message_send:
+    pattern:  /send
+    defaults: { _controller: itawMessageBundle:Message:send }
+    

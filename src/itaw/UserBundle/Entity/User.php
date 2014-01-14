@@ -34,10 +34,15 @@ class User extends BaseUser
      * */
     private $profile;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="itaw\MessageBundle\Entity\Message", mappedBy="receivers")
+     */
+    private $receivedMessages;
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->receivedMessages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId()
@@ -73,6 +78,16 @@ class User extends BaseUser
     public function setProfile($profile)
     {
         $this->profile = $profile;
+    }
+
+    public function getReceivedMessages()
+    {
+        return $this->receivedMessages;
+    }
+
+    public function setReceivedMessages($receivedMessages)
+    {
+        $this->receivedMessages = $receivedMessages;
     }
 
 }
