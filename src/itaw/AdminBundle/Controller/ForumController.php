@@ -1,6 +1,6 @@
 <?php
 
-namespace itaw\ForumBundle\Controller;
+namespace itaw\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 

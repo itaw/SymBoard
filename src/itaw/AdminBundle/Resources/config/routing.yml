@@ -1,3 +1,16 @@
 itaw_admin_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: itawAdminBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: itawAdminBundle:Page:index }
+    
+#forum crud
+itaw_forum_create_forum:
+    pattern:  /forums/create
+    defaults: { _controller: itawAdminBundle:Forum:create }
+    
+itaw_forum_update_forum:
+    pattern:  /forums/{forum_slug}/update
+    defaults: { _controller: itawAdminBundle:Forum:update }
+    
+itaw_forum_delete_forum:
+    pattern:  /forums/{forum_slug}/delete
+    defaults: { _controller: itawAdminBundle:Forum:delete }

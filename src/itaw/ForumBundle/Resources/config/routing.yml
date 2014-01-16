@@ -17,20 +17,7 @@ itaw_forum_forums:
 itaw_forum_show_forum:
     pattern:  /forums/{forum_slug}
     defaults: { _controller: itawForumBundle:Page:showForum }
-
-#forum crud
-itaw_forum_create_forum:
-    pattern:  /forums/create
-    defaults: { _controller: itawForumBundle:Forum:create }
-    
-itaw_forum_update_forum:
-    pattern:  /forums/{forum_slug}/update
-    defaults: { _controller: itawForumBundle:Forum:update }
-    
-itaw_forum_delete_forum:
-    pattern:  /forums/{forum_slug}/delete
-    defaults: { _controller: itawForumBundle:Forum:delete }
-    
+   
 #thread crud
 itaw_forum_create_thread:
     pattern:  /forums/{forum_slug}/thread/create

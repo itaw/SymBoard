@@ -1,6 +1,6 @@
 itaw_admin:
     resource: "@itawAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 itaw_message:
     resource: "@itawMessageBundle/Resources/config/routing.yml"
