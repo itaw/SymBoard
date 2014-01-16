@@ -1,3 +1,7 @@
+itaw_admin:
+    resource: "@itawAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 itaw_message:
     resource: "@itawMessageBundle/Resources/config/routing.yml"
     prefix:   /messages
@@ -13,6 +17,8 @@ itaw_template:
 itaw_forum:
     resource: "@itawForumBundle/Resources/config/routing.yml"
     prefix:   /
+    options:
+        expose: true
 
 itaw_user:
     resource: "@itawUserBundle/Resources/config/routing.yml"

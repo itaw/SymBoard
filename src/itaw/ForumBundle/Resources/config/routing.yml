@@ -4,9 +4,7 @@ itaw_forum_homepage:
     
 itaw_forum_login_check:
     pattern:  /sec/lc/{username}
-    defaults: { _controller: itawForumBundle:Page:loginCheck }
-    options:
-        expose: true
+    defaults: { _controller: itawForumBundle:Page:loginCheck }    
         
 itaw_forum_login_state:
     pattern:  /sec/ls/{username}
