@@ -57,10 +57,11 @@
 <div class="container">
     <div class="col-lg-12 page">
         {% block content %}{% endblock %}
-        <br>
-        <br>
-        <hr>
-        {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-sm btn-default" href="{{ path('itaw_admin_homepage') }}">Administration</a>{% endif %}
+        
+        <div class="admin-footer">
+            <hr>
+            {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-sm btn-default" href="{{ path('itaw_admin_homepage') }}">Administration</a>{% endif %}
+        </div>
     </div>
 </div>
 

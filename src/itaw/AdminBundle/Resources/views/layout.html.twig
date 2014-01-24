@@ -1,14 +1,14 @@
 {% extends "::base.html.twig" %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css'}) }}">
-<link rel="stylesheet" href="{{ asset('assets/css/admin.css'}) }}">
+<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
 {% endblock %}
 
 {% block javascripts %}
-<script src="{{ asset('assets/js/jquery-2.0.3.min.js'}) }}"></script>
-<script src="{{ asset('assets/js/bootstrap.min.js'}) }}"></script>
-<script src="{{ asset('assets/js/admin.js'}) }}"></script>
+<script src="{{ asset('assets/js/jquery-2.0.3.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/admin.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -31,6 +31,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li><a href="{{ path('itaw_forum_view_forums') }}">Foren</a></li>
+                <li><a href="#">Beiträge</a></li>
+                <li><a href="#">Benutzer und Gruppen</a></li>
+                <li><a href="#">Berechtigungen</a></li>
+                <li><a href="#">Wartung</a></li>
+                <li><a href="#">System</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

@@ -1,5 +1,12 @@
-#thread
-itaw_forum_api_thread_create:
-    pattern:  /thread
-    defaults: { _controller: itawForumApiBundle:Thread:create }
-    methods: [POST]
+#user
+itaw_forum_api_user:
+    pattern:  /users/{id}
+    defaults: { _controller: itawForumApiBundle:User:getObject }
+    methods: [GET]
+    requirements:
+        page:  \d+
+    
+itaw_forum_api_user_like_name:
+    pattern:  /users/likeUsername/{username}
+    defaults: { _controller: itawForumApiBundle:User:getUsersLikeName }
+    methods: [GET]

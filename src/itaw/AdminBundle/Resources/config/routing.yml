@@ -3,6 +3,10 @@ itaw_admin_homepage:
     defaults: { _controller: itawAdminBundle:Page:index }
     
 #forum crud
+itaw_forum_view_forums:
+    pattern:  /forums
+    defaults: { _controller: itawAdminBundle:Forum:view }
+
 itaw_forum_create_forum:
     pattern:  /forums/create
     defaults: { _controller: itawAdminBundle:Forum:create }

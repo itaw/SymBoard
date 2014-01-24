@@ -7,6 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ForumController extends Controller
 {
 
+    public function viewAction()
+    {
+        return $this->render('itawAdminBundle:Forum:forums.html.twig');
+    }
+    
     public function createAction()
     {
         
